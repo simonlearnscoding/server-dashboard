@@ -3,6 +3,7 @@ version: 3.8
 services:
   nextjs:
     image: nextjs-app
+    env_file: "./.env"
     ports:
       - "0.0.0.0:3000:3000"
     container_name: nextjs

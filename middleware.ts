@@ -19,7 +19,7 @@ export default clerkMiddleware(async (auth, req) => {
     await auth.protect();
     const { userId } = await auth();
     const client = await clerkClient();
-    const user = await client.users.getUser(userId);
+    const user = await client.users.getUser(userId as string);
     const userMails = user.emailAddresses.map((email) => email.emailAddress);
     // 4. Check if user email is allowed
     if (!userMails.some((email) => ALLOWED_EMAILS.includes(email))) {
